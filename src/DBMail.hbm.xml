@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+    
+    
+    <hibernate-mapping package="beans">
+    
+    
+    <class name="Employee" table="Emp_details">
+    
+    
+    <id name="id" column="Emp_id">
+    
+    <generator class="assigned"></generator>
+      
+    </id>
+    
+    <property name="name" column="Emp_name"></property>
+    <property name="city" column="Emp_city"></property>
+    <property name="salary" column="Emp_salary"></property>
+    
+    
+    
+    
+    
+    
+    </class>
+    
+    <class name="Department" table="Dept_details">
+    <id name="id" column="dept_id">
+    
+    <generator class="assigned"></generator>
+    
+    </id>
+    
+    <property name="type" column="dept_type"></property>
+    <property name="location" column="dept_loction"></property>
+    
+    
+    
+    <set name="s" cascade="all">
+    <key column="dept_id" ></key>
+    
+    <one-to-many class="Employee"/>
+    </set>
+   
+    
+    
+    
+    
+    
+    
+    
+    </class>
+    
+    
+    
+    
+    </hibernate-mapping>
